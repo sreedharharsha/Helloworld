@@ -6,6 +6,9 @@
 trigger:
 - master
 
+pool:
+ vmImage: 'ubuntu-latest'
+
 steps:
 - task: Maven@3
   inputs:
@@ -22,7 +25,7 @@ steps:
   inputs:
     Contents: '**/.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
-  vmImage: ubuntu-latest
+ 
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
